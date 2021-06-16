@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.Set;
 
 
-class GraphPlotter {
-    private Graph graph;
+public class GraphPlotter {
+    private static Graph graph;
 
     GraphPlotter(List<UserNode> points) {
         graph = new SingleGraph("Friend circle");
@@ -109,5 +109,9 @@ class GraphPlotter {
         }
         Node node = graph.getNode(Long.toString(special.getId()));
         node.addAttribute("ui.class", "first");
+    }
+
+    public static Graph getGraph() {
+        return graph;
     }
 }
