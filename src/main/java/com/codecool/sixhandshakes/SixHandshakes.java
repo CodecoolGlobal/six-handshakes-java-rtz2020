@@ -21,6 +21,7 @@ public class SixHandshakes {
         UserNode end = null;
         boolean checker;
         initSocialGraph();
+        graphPlotter = new GraphPlotter(users);
         int menuanswer = printmenu();
         if (menuanswer == 1){
             outerloop:
@@ -45,7 +46,12 @@ public class SixHandshakes {
             System.out.println("Handshakes between " + start + " and " + end + " is " + count + " ");;
 
         }
-        graphPlotter = new GraphPlotter(users);
+        if (menuanswer == 2){
+            int distance = 4;
+            UserNode user = users.get(6);
+            Set<UserNode> friends = FriendsOfFriendsFinder.getFriendsOfFriends(user, distance);
+            System.out.println("Friends of friends with distance " + distance + " about " + user + " is:" + friends + " ");;
+        }
         System.out.println("Done!");
     }
 
@@ -81,6 +87,7 @@ public class SixHandshakes {
         System.out.println("Choose from these choices");
         System.out.println("-------------------------\n");
         System.out.println("1 - Minimum handshakes");
+        System.out.println("2 - Friends of friends");
 
 
         selection = number.nextInt();
