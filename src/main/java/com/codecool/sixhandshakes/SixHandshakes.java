@@ -52,6 +52,12 @@ public class SixHandshakes {
             Set<UserNode> friends = FriendsOfFriendsFinder.getFriendsOfFriends(user, distance);
             System.out.println("Friends of friends with distance " + distance + " about " + user + " is:" + friends + " ");;
         }
+        if (menuanswer == 3){
+            UserNode beginuser = users.get(10);
+            UserNode finaluser = users.get(20);
+            List<UserNode> chain = FriendChainCalculator.getShortestRoutesBetween(beginuser, finaluser);
+            System.out.println("Shortest path between " + beginuser + " and " + finaluser + " is: " + chain + " ");;
+        }
         System.out.println("Done!");
     }
 
@@ -88,6 +94,7 @@ public class SixHandshakes {
         System.out.println("-------------------------\n");
         System.out.println("1 - Minimum handshakes");
         System.out.println("2 - Friends of friends");
+        System.out.println("3 - Shortest routes");
 
 
         selection = number.nextInt();
